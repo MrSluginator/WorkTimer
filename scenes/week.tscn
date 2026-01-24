@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ivarhurfkmj"]
+
+[ext_resource type="Script" uid="uid://dqeld7dasok61" path="res://scripts/week.gd" id="1_35v4v"]
+[ext_resource type="StyleBox" uid="uid://bh525vtde7v84" path="res://themes/plain_box.tres" id="1_s2htm"]
+
+[node name="Week" type="PanelContainer"]
+offset_right = 6.0
+offset_bottom = 6.0
+theme_override_styles/panel = ExtResource("1_s2htm")
+script = ExtResource("1_35v4v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Days" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1

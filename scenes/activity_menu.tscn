@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://danrcbl34mvte"]
+
+[ext_resource type="Script" uid="uid://b344ih8cvgr2w" path="res://scripts/activity_menu.gd" id="1_t07lv"]
+[ext_resource type="PackedScene" uid="uid://3nw5ickrgx4g" path="res://scenes/month.tscn" id="2_oj23u"]
+
+[node name="ActivityMenu" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.5
+offset_right = 34.5
+offset_bottom = 37.0
+grow_horizontal = 2
+script = ExtResource("1_t07lv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ACTIVITY"
+
+[node name="Activity" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Month" parent="VBoxContainer/Activity" instance=ExtResource("2_oj23u")]
+unique_name_in_owner = true
+layout_mode = 2

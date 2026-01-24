@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo1dbu3w1pkxy"]
+
+[ext_resource type="Script" uid="uid://e44n5650n84g" path="res://scripts/timers_menu.gd" id="1_3aj72"]
+[ext_resource type="PackedScene" uid="uid://bf3vj54thohms" path="res://scenes/session_button.tscn" id="2_7ysmw"]
+
+[node name="TimerMenu" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_right = 65.0
+offset_bottom = 58.0
+grow_horizontal = 2
+script = ExtResource("1_3aj72")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "START WORKING"
+
+[node name="SessionList" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LongSession" parent="VBoxContainer/SessionList" instance=ExtResource("2_7ysmw")]
+layout_mode = 2
+
+[connection signal="created_session" from="VBoxContainer/SessionList/LongSession" to="." method="_on_long_session_created_session"]

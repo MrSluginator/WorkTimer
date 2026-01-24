@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://cneog3wehex0a"]
+
+[ext_resource type="Script" uid="uid://b8qnixe65ul4x" path="res://scripts/checkin_menu.gd" id="1_ggvga"]
+
+[node name="CheckinMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ggvga")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Task" type="TextEdit" parent="CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+placeholder_text = "Enter task here"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Topic" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Topic"
+
+[node name="RecentTopics" type="VBoxContainer" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="text_submitted" from="CenterContainer/HBoxContainer/VBoxContainer/Topic" to="." method="_on_topic_text_submitted"]

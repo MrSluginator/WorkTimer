@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8h6o0jjv4dyq"]
+
+[ext_resource type="Theme" uid="uid://ehr71xekyu61" path="res://themes/basic_theme.tres" id="1_8ln24"]
+[ext_resource type="PackedScene" uid="uid://cnfcqqt0wkg7x" path="res://scenes/goals_menu.tscn" id="2_rtw2f"]
+[ext_resource type="Script" uid="uid://dmgu68fvblits" path="res://scripts/main_menu.gd" id="2_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://bo1dbu3w1pkxy" path="res://scenes/timers_menu.tscn" id="3_oa1go"]
+[ext_resource type="PackedScene" uid="uid://6rkbs7uka4ji" path="res://scenes/tasks_menu.tscn" id="4_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://danrcbl34mvte" path="res://scenes/activity_menu.tscn" id="5_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://ra1o8gfolqfx" path="res://assets/Pi7_menu-dots-vertical.png" id="6_oa1go"]
+[ext_resource type="Texture2D" uid="uid://b0tcsw38bnviy" path="res://assets/Pi7_cross.png" id="6_rtw2f"]
+
+[node name="MainMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8ln24")
+script = ExtResource("2_tbmy8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="GoalsMenu" parent="CenterContainer/HBoxContainer" instance=ExtResource("2_rtw2f")]
+layout_mode = 2
+
+[node name="TimerMenu" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_oa1go")]
+layout_mode = 2
+
+[node name="TasksMenu" parent="CenterContainer/HBoxContainer" instance=ExtResource("4_tbmy8")]
+visible = false
+layout_mode = 2
+
+[node name="ActivityMenu" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_jk1qb")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Options" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+icon = ExtResource("6_oa1go")
+expand_icon = true
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+icon = ExtResource("6_rtw2f")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="visibility_changed" from="." to="CenterContainer/HBoxContainer/GoalsMenu" method="_on_main_menu_visibility_changed"]
+[connection signal="pressed" from="HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]

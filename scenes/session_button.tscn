@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf3vj54thohms"]
+
+[ext_resource type="Script" uid="uid://dbwt8rgs3klgk" path="res://scripts/session_button.gd" id="1_p673r"]
+
+[node name="LongSession" type="Button"]
+text = "LONG SESSION"
+script = ExtResource("1_p673r")
