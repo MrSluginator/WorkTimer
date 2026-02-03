@@ -194,6 +194,10 @@ alignment = 2
 suffix = "mins"
 custom_arrow_step = 1.0
 
+[node name="CreateInvoice" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Create Invoice"
+
 [node name="Save" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -210,4 +214,5 @@ text = "Save"
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer/PomodoroOptions/VBoxContainer/HBoxContainer/FocusDuration" to="." method="_on_focus_duration_value_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer/PomodoroOptions/VBoxContainer/HBoxContainer2/BreakDuration" to="." method="_on_break_duration_value_changed"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/LongSessionInterval/SessionInterval" to="." method="_on_session_interval_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/CreateInvoice" to="." method="_on_create_invoice_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]

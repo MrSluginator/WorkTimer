@@ -56,3 +56,9 @@ func _on_session_interval_value_changed(value: float) -> void:
 
 func _on_save_pressed() -> void:
 	queue_free()
+
+var invoice_menu_scene:PackedScene = load("res://scenes/invoice_menu.tscn")
+
+func _on_create_invoice_pressed() -> void:
+	var invoice_menu:Node = invoice_menu_scene.instantiate()
+	add_child(invoice_menu)
